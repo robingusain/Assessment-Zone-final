@@ -1,0 +1,146 @@
+.mainWrap {
+  display: grid;
+  grid-template-columns: 230px 1fr 230px;
+  height: 100vh;
+  transition: grid-template-columns 0.3s ease;
+  background: #1a1a22;
+}
+
+.collapsed {
+  grid-template-columns: 0px 1fr 230px;
+}
+
+/* Toggle Button */
+.toggleBtn {
+  position: absolute;
+  top: 12px;
+  left: 180px; 
+  background: #323743;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  z-index: 9999;
+  padding: 2px;
+  transition: left 0.3s ease;
+}
+
+/* When collapsed */
+.toggleCollapsed {
+  left: 0;
+  top: 50%;
+  border-radius: 0 6px 6px 0;
+}
+
+/* Sidebar */
+.aside {
+  box-sizing: border-box;
+  background: #1a1a22;
+  padding: 16px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+/* Slide left smoothly */
+.collapsed .aside {
+  transform: translateX(-230px);
+}
+
+.asideInner {
+  flex: 1;
+}
+
+.clientList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.hline {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  border-top: 1px solid rgb(186, 183, 183);
+  padding: 20px 0;
+}
+
+.logo {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logoImage {
+  width: 100px;
+  height: 100px;
+}
+
+/* Buttons */
+.btn {
+  width: 180px;
+  height: 30px;
+  border-radius: 7px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.copyBtn {
+  background: linear-gradient(45deg, #2776bc, #4facfe);
+}
+
+.copyBtn:hover {
+  background: #2776bc;
+}
+
+.leaveBtn {
+  background-color: red;
+  margin-top: 20px;
+}
+
+.leaveBtn:hover {
+  background: rgb(209, 3, 3);
+}
+
+/* Editor */
+.editorWrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.editorWrap > *:first-child {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Terminal */
+.terminal {
+  background: #212121;
+  height: 250px;
+  min-height: 150px;
+  padding: 15px;
+  overflow: hidden;
+  border-top: 1px solid rgb(77, 76, 76);
+}
+
+
+.dragBar {
+  height: 6px;
+  cursor: row-resize;
+  background: #2c2c2c;
+}
+
+.dragBar:hover {
+  background: #5c6874;
+}

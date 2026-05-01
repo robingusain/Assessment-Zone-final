@@ -1,0 +1,99 @@
+.topBar select{
+  cursor: pointer;
+}
+
+.editorContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.topBar {
+  padding: 10px;
+  background: #212121;
+  display: flex;
+  gap: 10px;
+}
+
+.topBar select,
+.topBar button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.editorWrapper {
+  flex: 1;
+  min-height: 0;
+}
+
+/* CodeMirror styling */
+:global(.CodeMirror) {
+  height: 100% !important;
+  font-size: 16px;
+  z-index: 1;
+}
+
+.editorContainer :global(.CodeMirror) {
+  padding-left: 27px;
+}
+
+:global(.CodeMirror-scroll) {
+  overflow: auto !important;   /* enables scroll */
+  scroll-behavior: smooth;
+}
+
+.editorContainer {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.topBar select {
+  background: #252536;
+  color: #fff;
+  border: 1px solid #3a3a4a;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.topBar select:hover {
+  background: #28283a;
+}
+
+.btn{
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.runBtn{
+  background: #2c8e3b;
+}
+
+.runBtn:hover{
+  background: #236e2e;
+}
+
+.runBtn:disabled {
+  background-color: #6c757d;  
+  cursor: not-allowed;
+}
+
+.clearBtn{
+  background: #6d718d;
+}
+
+.clearBtn:hover{
+  background: #5d666e;
+}

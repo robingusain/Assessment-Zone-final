@@ -1,0 +1,19 @@
+.client {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.username {
+  max-width: 80px;          /* 🔥 control width properly */
+  text-align: center;
+
+  white-space: nowrap;      /* 🔥 prevent wrapping */
+  overflow: hidden;         /* 🔥 hide overflow */
+  text-overflow: ellipsis;  /* 🔥 show ... */
+
+  font-size: 12px;          /* optional: better fit */
+}
