@@ -1,13 +1,15 @@
 .mainWrap {
   display: grid;
-  grid-template-columns: 230px 1fr 230px;
+  /* grid-template-columns: 230px 1fr 640px; */
+  grid-template-columns: 230px 1fr var(--chat-width);
   height: 100vh;
-  transition: grid-template-columns 0.3s ease;
+  /* transition: grid-template-columns 0.3s ease; */
+  transition: none;
   background: #1a1a22;
 }
 
 .collapsed {
-  grid-template-columns: 0px 1fr 230px;
+  grid-template-columns: 0px 1fr var(--chat-width);
 }
 
 /* Toggle Button */
@@ -149,5 +151,27 @@
 }
 
 .dragBar:hover {
+  background: #5c6874;
+}
+
+
+.chats{
+  background-color: #1a1a22;
+  position: relative;
+  height: 100vh;
+  transition: width 0.1s ease;
+}
+
+.resizer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;          /* thickness of drag bar */
+  height: 100%;
+  cursor: ew-resize;   /* horizontal resize cursor */
+  background: #2c2c2c;
+  z-index: 10;
+}
+.resizer:hover {
   background: #5c6874;
 }

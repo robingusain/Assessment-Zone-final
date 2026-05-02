@@ -20,6 +20,7 @@ const EditorPage = () => {
   const socketRef = useRef(null);
   const codeRef = useRef("");
   const location = useLocation();
+  const username = location.state?.username;
   const reactNavigator = useNavigate();
   const { roomId } = useParams();
 
@@ -32,6 +33,7 @@ const EditorPage = () => {
   const [fitAddon, setFitAddon] = useState(null);
 
   const [terminalHeight, setTerminalHeight] = useState(250);
+  const [chatsWidth, setChatsWidth] = useState(640);
   const isDragging = useRef(false);
 
   // ================= SOCKET =================
@@ -178,6 +180,37 @@ const EditorPage = () => {
     }
   }
 
+  // Handle chats resize
+  const handleChatResize = () => {
+    document.body.style.userSelect = "none";
+
+    const onMouseMove = (e) => {
+      const container = document.querySelector(`.${styles.mainWrap}`);
+      if (!container) return;
+
+      const rect = container.getBoundingClientRect();
+
+      const MIN_WIDTH = 250;
+      const MAX_WIDTH = 800;
+
+      const newWidth = Math.min(
+        MAX_WIDTH,
+        Math.max(MIN_WIDTH, rect.right - e.clientX),
+      );
+
+      setChatsWidth(newWidth);
+    };
+
+    const onMouseUp = () => {
+      document.body.style.userSelect = "auto";
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
+    };
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  };
+
   function leaveRoom() {
     reactNavigator("/");
   }
@@ -189,6 +222,7 @@ const EditorPage = () => {
   return (
     <div
       className={`${styles.mainWrap} ${isCollapsed ? styles.collapsed : ""}`}
+      style={{ "--chat-width": `${chatsWidth}px` }}
     >
       {/* Toggle Sidebar */}
       <button
@@ -264,7 +298,8 @@ const EditorPage = () => {
 
       {/* Chats */}
       <div className={styles.chats}>
-        <Chats />
+        <Chats username={username} />
+        <div className={styles.resizer} onMouseDown={handleChatResize} />
       </div>
     </div>
   );
