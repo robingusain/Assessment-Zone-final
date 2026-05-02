@@ -6,8 +6,8 @@ import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt'
 const Chats = ({username}) => {
   const { roomId} = useParams();
   const myMeeting = async(element) =>{
-    const appID = 213296858;
-    const serverSecret = "f81812314a3b9f036bd1bfea183cf562";
+    const appID = Number(import.meta.env.VITE_ZEGO_APP_ID);
+    const serverSecret = import.meta.env.VITE_ZEGO_SERVER_SECRET;
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomId, Date.now().toString(), username);
     const zc=ZegoUIKitPrebuilt.create(kitToken);
     zc.joinRoom({
