@@ -103,9 +103,9 @@ const EditorPage = () => {
 
     try {
       const output = await runCode(codeRef.current || "", language, input);
-
       terminal.write("\r\nOutput:\r\n");
-      terminal.write(output + "\r\n> ");
+      const normalizedOutput = output.replace(/\n/g, "\r\n");
+      terminal.write(normalizedOutput + "\r\n> ");
       terminal.focus();
     } catch (err) {
       if (err.response?.status === 429) {

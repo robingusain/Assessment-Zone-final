@@ -133,6 +133,13 @@
   overflow: hidden;
   border-top: 1px solid rgb(77, 76, 76);
 }
+.terminal::-webkit-scrollbar {
+  width: 6px;
+}
+.terminal::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}
 
 
 .dragBar {

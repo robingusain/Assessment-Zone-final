@@ -1,0 +1,4 @@
+:global(.xterm .xterm-viewport) {
+  overflow-y: auto !important;
+  scrollbar-color: rgba(100, 100, 100, 0.7) transparent;
+}

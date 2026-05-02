@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Terminal } from "xterm";
 import { FitAddon } from "xterm-addon-fit"; // 🔥 important
 import "xterm/css/xterm.css";
+import styles from "./Terminal.module.css";
 
 const TerminalComponent = ({ onRun, setTerminal, setFitAddon}) => {
   const terminalRef = useRef(null);
@@ -41,9 +42,6 @@ const TerminalComponent = ({ onRun, setTerminal, setFitAddon}) => {
     term.onData((data) => {
       if (data === "\r") {
         term.write("\r\n");
-
-        if (onRun) onRun(buffer);
-
         buffer = "";
         term.write("> ");
       } else if (data === "\u007F") {

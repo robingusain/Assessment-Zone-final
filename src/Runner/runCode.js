@@ -9,7 +9,7 @@ const languageMap = {
 
 export const runCode = async (code, language, input) => {
   const res = await axios.post(
-    "https://judge0e29.p.rapidapi.com/submissions?base64_encoded=false&wait=true",
+    "https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true",
     {
       source_code: code,
       stdin: input,
@@ -19,7 +19,7 @@ export const runCode = async (code, language, input) => {
       headers: {
         "Content-Type": "application/json",
         "X-RapidAPI-Key": import.meta.env.VITE_RAPIDAPI_KEY,
-        "X-RapidAPI-Host": "judge029.p.rapidapi.com",
+        "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
       },
     }
   );
