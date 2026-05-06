@@ -5,7 +5,12 @@ import ACTIONS from './src/Actions.js';
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server,{
+    cors:{
+        origin: "https://assessment-zone-final1.vercel.app",
+        methods: ['GET', 'POST'],
+    },
+});
 
 const userSocketMap = {};
 function getAllConnectedClients(roomId){
